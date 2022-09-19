@@ -26,16 +26,19 @@ export default function Header({}: Props) {
                 url="https://twitter.com/marvin_espira" 
                 fgColor="gray"
                 bgColor="transparent"
+                target="_blank"
             />
             <SocialIcon 
                 url="https://twitter.com/marvin_espira" 
                 fgColor="gray"
                 bgColor="transparent"
+                target="_blank"
             />
            <SocialIcon 
                 url="https://www.linkedin.com/in/marvin-espira/" 
                 fgColor="gray"
                 bgColor="transparent"
+                target="_blank"
             />
 
         </motion.div>
