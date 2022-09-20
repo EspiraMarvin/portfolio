@@ -1,23 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Project } from '../typings'
+import { urlFor } from '../sanity'
+import Image from 'next/image'
+import Link from 'next/link'
 
-type Props = {}
+type Props = {
+    projects: Project[]
+}
 
-export default function Projects({}: Props) {
-    const projects = [1, 2, 3 ,4 ,5]
+export default function Projects({ projects }: Props) {
+    const [showLabel, setShowLabel] =  useState(false)
   return (
     <motion.div
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
     transition={{ duration: 1.5 }}
-     className="h-screen relative flex flex-col md:flex-row overflow-hidden text-left items-center justify-evenly  max-w-full mx-auto z-0">
+     className="relative z-0 flex flex-col items-center h-screen max-w-full mx-auto overflow-hidden text-left md:flex-row justify-evenly">
         <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
             Projects
         </h3>
 
-        <div className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
+        <div className="relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory appScrollbar">
             { projects.map((project, index) => (
-                <div className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center p-20 md:p-44 h-screen" key={index}>
+                <div className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-20 space-y-5 snap-center md:p-44" key={project._id}>
                     <motion.img 
                     initial={{
                         y: -300,
@@ -26,20 +32,41 @@ export default function Projects({}: Props) {
                     transition={{ duration: 1.2 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                      src="https://help.nflxext.com/0af6ce3e-b27a-4722-a5f0-e32af4df3045_what_is_netflix_5_en.png" alt=""
-                      className="h-80 w-[500px]" 
+                    src={urlFor(project?.image).url()}
+                      className="h-80 w-[500px] object-cover" 
                     />
 
-                    <div className="space-y-10 px-0 mz:px-10 max-w-6xl">
-                    <h4 className="text-3xl md:text-4xl font-semibold text-center">
-                        <span className="underline decoration-[#F7AB0A]/50"> 
-                        Case Study {index + 1} of {projects.length}
+                    <div className="max-w-6xl px-0 space-y-10 md:px-10">
+                    <h4 className="text-xl font-semibold text-center md:text-3xl 2xl:text-4xl">
+                        <span className="underline decoration-[#F7AB0A]/50 text-base"> 
+                        Project {index + 1} of {projects.length}
                        </span> {' '}
-                       UPS Clone
+                       <a target="_blank" href={project?.linkToBuild}  rel="noopener noreferrer">
+                           <span className="text-gray-300 cursor-pointer hover:text-gray-50 hover:underline hover:decoration-white">{ project?.title }</span>
+                      </a>
                     </h4>
                     
-                    <p className="text-lg text-center md:text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ullam repellendus nobis autem, optio consequuntur temporibus porro atque? Officia inventore, neque optio at quos repellendus, hic aliquam quam architecto sapiente libero fuga illo dignissimos quibusdam! Ipsam, recusandae accusamus. Voluptates inventore, fugit ut ducimus nisi rerum nostrum a. Quaerat, fuga sapiente!</p>
 
+                    <div className="flex items-center justify-center gap-x-4">
+                        {project?.technologies.map(tech => (
+                            <div key={tech._id}>
+                              <Image
+                                key={tech._id}
+                                src={urlFor(tech?.image).url()} 
+                                width={32}
+                                height={32}
+                                alt="tech"
+                                className={`hover ${ showLabel && 'cursor-pointer'}`}
+                             />
+                             {showLabel && tech?.title}
+                            </div>
+                        ))}
+                    </div>
+
+                    <p className="text-lg text-center md:text-left">
+                        { project?.summary }
+                    </p>
+                       
                     </div>
                 </div>
             ))}

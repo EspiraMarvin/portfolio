@@ -3,13 +3,17 @@ import { useTypewriter, Cursor } from 'react-simple-typewriter'
 import BackgroundCircles from './BackgroundCircles'
 import Image from 'next/image'
 import Link from 'next/link'
+import { PageInfo } from '../typings'
+import { urlFor } from '../sanity'
 
-type Props = {}
+type Props = {
+    pageInfo: PageInfo
+}
 
-export default function Hero({}: Props) {
+export default function Hero({ pageInfo }: Props) {
     const [text, count] = useTypewriter({
         words: [
-            "Hi, My name is Marvin Espira.",
+            `Hi, My name's ${pageInfo?.name}`,
             "Good in React, Nextjs",
             "Good in Typescript, Javascript",
             "<LovesToCodeMore💻️>",
@@ -19,18 +23,18 @@ export default function Hero({}: Props) {
         delaySpeed: 2000
        })
   return (
-    <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
+    <div className="flex flex-col items-center justify-center h-screen space-y-8 overflow-hidden text-center">
         <BackgroundCircles />
         <Image
-            src="/marvin.jpeg"  
-            className="rounded-full h-32 w-32 object-cover"
+            src={urlFor(pageInfo?.heroImage).url()}  
+            className="object-cover w-32 h-32 rounded-full"
             width={130}
             height={130}
             alt="profile" 
         />
         <div className="z-30">
-            <h2 className="text-sm uppercase text-gray-500 tracking-[15px]">Software Engineer</h2>
-            <h1 className="font-bold mr-3 text-5xl lg:text-6xl px-10">
+            <h2 className="text-sm uppercase text-gray-500 tracking-[15px]">{pageInfo?.role}</h2>
+            <h1 className="px-10 mr-3 text-5xl font-bold lg:text-6xl">
                 <span className="mr-3">{text}</span>
                 <Cursor cursorColor="#F7AB0A" />
             </h1>        
