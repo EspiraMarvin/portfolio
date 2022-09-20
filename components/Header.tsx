@@ -34,6 +34,12 @@ export default function Header({}: Props) {
                 bgColor="transparent"
                 target="_blank"
             />
+            <SocialIcon 
+                url="https://github.com/EspiraMarvin" 
+                fgColor="gray"
+                bgColor="transparent"
+                target="_blank"
+            />
            <SocialIcon 
                 url="https://www.linkedin.com/in/marvin-espira/" 
                 fgColor="gray"
