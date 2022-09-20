@@ -38,3 +38,5 @@ next-env.d.ts
 
 .idea
 .vscode
+
+sanity/node_modules
