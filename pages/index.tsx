@@ -10,11 +10,12 @@ import Skills from '../components/Skills'
 import WorkExperience from '../components/WorkExperience'
 import { ArrowUpCircleIcon } from '@heroicons/react/24/solid'
 import { Experience, PageInfo, Project, Skill, Social } from '../typings'
-import { fetchPageInfo } from '../utils/fetchPageInfo'
-import { fetchExperiences } from '../utils/fetchExperiences'
-import { fetchSkills } from '../utils/fetchSkills'
-import { fetchProjects } from '../utils/fetchProjects'
-import { fetchSocials } from '../utils/fetchSocials'
+import requests from "../utils/requests"
+// import { fetchPageInfo } from '../utils/fetchPageInfo'
+// import { fetchExperiences } from '../utils/fetchExperiences'
+// import { fetchSkills } from '../utils/fetchSkills'
+// import { fetchProjects } from '../utils/fetchProjects'
+// import { fetchSocials } from '../utils/fetchSocials'
 // import styles from '../styles/Home.module.css'
 
 interface Props  {
@@ -74,21 +75,40 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
 export default Home
 
 export const getStaticProps: GetStaticProps<Props> = async() => {
-  const pageInfo: PageInfo =  await fetchPageInfo()
-  const experiences: Experience[] =  await fetchExperiences()
-  const skills: Skill[] =  await fetchSkills()
-  const projects: Project[] =  await fetchProjects()
-  const socials: Social[] =  await fetchSocials()
+  // const pageInfo: PageInfo =  await fetchPageInfo()
+  // const experiences: Experience[] =  await fetchExperiences()
+  // const skills: Skill[] =  await fetchSkills()
+  // const projects: Project[] =  await fetchProjects()
+  // const socials: Social[] =  await fetchSocials()
+
+  const [
+    pageInfo,
+    experiences,
+    skills,
+    projects,
+    socials,
+  ] = await Promise.all([
+    fetch(requests.fetchPageInf).then((res) => res.json()),
+    fetch(requests.fetchExp).then((res) => res.json()),
+    fetch(requests.fetchSkil).then((res) => res.json()),
+    fetch(requests.fetchProj).then((res) => res.json()),
+    fetch(requests.fetchSoci).then((res) => res.json())
+  ])
 
   return {
     props: {
-      pageInfo,
-      experiences,
-      skills,
-      projects,
-      socials,
+      pageInfo: pageInfo.pageInfo,
+      experiences: experiences.experiences,
+      skills: skills.skills,
+      projects: projects.projects,
+      socials: socials.socials,
+      // pageInfo,
+      // experiences,
+      // skills,
+      // projects,
+      // socials,
     },
     // Next will try and regenerate the page after n time of seconds
-    revalidate: 10
+    revalidate: 30
   }
 }
