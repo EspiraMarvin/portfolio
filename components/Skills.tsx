@@ -24,7 +24,7 @@ export default function Skills({ skills }: Props) {
           ))}
 
           { skills.slice(skills.length/2, skills.length)?.map(skill => (
-            <Skill key={skill._id} skill={skill} directionLeft />
+            <Skill key={skill._id} skill={skill} directionLeft={true} />
           ))} 
         </div>
 
