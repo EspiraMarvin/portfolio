@@ -11,5 +11,8 @@ export const config = {
 // setup the client for fetching data in the getProps page function
 export const sanityClient = createClient(config)
 
-// @ts-ignore ignore config error
+
+// @ts-ignore: Unreachable code error
 export const urlFor = (source: any) => createImageUrlBuilder(config).image(source)
+
+// @ts-ignore ignore config error
