@@ -6,7 +6,8 @@ export const config = {
     projectId: "ozf66dei", 
     // projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     // apiVersion: "2021-03-25",
-    apiVersion: "v1",
+    apiVersion: "2021-10-21",
+    // apiVersion: "v1",
     useCdn: process.env.NODE_ENV === "production",
 }
 
