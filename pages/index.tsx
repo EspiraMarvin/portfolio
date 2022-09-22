@@ -1,4 +1,6 @@
+
 import type { GetStaticProps } from 'next'
+import requests from "../utils/requests"
 import Head from 'next/head'
 import Link from 'next/link'
 import About from '../components/About'
@@ -10,7 +12,6 @@ import Skills from '../components/Skills'
 import WorkExperience from '../components/WorkExperience'
 import { ArrowUpCircleIcon } from '@heroicons/react/24/solid'
 import { Experience, PageInfo, Project, Skill, Social } from '../typings'
-import requests from "../utils/requests"
 // import { fetchPageInfo } from '../utils/fetchPageInfo'
 // import { fetchExperiences } from '../utils/fetchExperiences'
 // import { fetchSkills } from '../utils/fetchSkills'
