@@ -12,8 +12,8 @@ import createImageUrlBuilder from '@sanity/image-url'
   
 const config = {
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
-    // projectId: "ozf66dei", 
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    projectId: "ozf66dei", 
+    // projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     // apiVersion: "2021-03-25",
     apiVersion: "2021-10-21",
     // apiVersion: "v1",
