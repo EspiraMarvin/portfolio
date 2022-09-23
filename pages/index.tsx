@@ -29,41 +29,38 @@ interface Props  {
   socials: Social[]
 }
 
-// const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
-const Home = ({}) => {
-  const [pageInfo, setPageInfo] = useState<any | null>()
-  const [experiences, setExperiences] = useState<Experience[]>([])
-  const [skills, setSkills] = useState<Skill[]>([])
-  const [projects, setProjects] = useState<Project[]>([])
-  const [socials, setSocials] = useState<Social[]>([])
+const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
+// const Home = ({}) => {
+  // const [pageInfo, setPageInfo] = useState<any | null>()
+  // const [experiences, setExperiences] = useState<Experience[]>([])
+  // const [skills, setSkills] = useState<Skill[]>([])
+  // const [projects, setProjects] = useState<Project[]>([])
+  // const [socials, setSocials] = useState<Social[]>([])
 
 
-  const fetchAll  = async () => {
-    const [
-      pageInfo,
-      experiences,
-      skills,
-      projects,
-      socials,
-    ] = await Promise.all([
-      axios.get(requests.fetchPageInf).then((res) => res.data),
-      axios.get(requests.fetchExp).then((res) => res.data),
-      axios.get(requests.fetchSkil).then((res) => res.data),
-      axios.get(requests.fetchProj).then((res) => res.data),
-      axios.get(requests.fetchSoci).then((res) => res.data)
-    ])
-    setPageInfo(pageInfo.pageInfo)
-    setExperiences(experiences.experiences)
-    setSkills(skills.skills)
-    setProjects(projects.projects)
-    setSocials(socials.socials)
-  }
   useEffect(() => {
-    fetchAll()
+    async function fetchAll(){
+      const [
+        pageInfo,
+        experiences,
+        skills,
+        projects,
+        socials,
+      ] = await Promise.all([
+        axios.get(requests.fetchPageInf).then((res) => res.data),
+        axios.get(requests.fetchExp).then((res) => res.data),
+        axios.get(requests.fetchSkil).then((res) => res.data),
+        axios.get(requests.fetchProj).then((res) => res.data),
+        axios.get(requests.fetchSoci).then((res) => res.data)
+      ])
+      // setPageInfo(pageInfo.pageInfo)
+      // setExperiences(experiences.experiences)
+      // setSkills(skills.skills)
+      // setProjects(projects.projects)
+      // setSocials(socials.socials)
+    }
+    // fetchAll()
   }, [])
-
-  // console.log('pageInfo', pageInfo)
-  // console.log('experiences', experiences)
 
 
   return (
@@ -117,54 +114,54 @@ const Home = ({}) => {
 
 export default Home
 
-// export const getStaticProps: GetStaticProps<Props> = async() => {
-//   // const pageInfo: PageInfo =  await fetchPageInfo()
-//   // const experiences: Experience[] =  await fetchExperiences()
-//   // const skills: Skill[] =  await fetchSkills()
-//   // const projects: Project[] =  await fetchProjects()
-//   // const socials: Social[] =  await fetchSocials()
+export const getStaticProps: GetStaticProps<Props> = async() => {
+  // const pageInfo: PageInfo =  await fetchPageInfo()
+  // const experiences: Experience[] =  await fetchExperiences()
+  // const skills: Skill[] =  await fetchSkills()
+  // const projects: Project[] =  await fetchProjects()
+  // const socials: Social[] =  await fetchSocials()
 
-//   const [
-//     pageInfo,
-//     experiences,
-//     skills,
-//     projects,
-//     socials,
-//   ] = await Promise.all([
-//     // fetch(requests.fetchPageInf).then((res) => res.json()),
-//     // fetch(requests.fetchExp).then((res) => res.json()),
-//     // fetch(requests.fetchSkil).then((res) => res.json()),
-//     // fetch(requests.fetchProj).then((res) => res.json()),
-//     // fetch(requests.fetchSoci).then((res) => res.json())
-
-
-//     axios.get(requests.fetchPageInf).then((res) => res.data),
-//     axios.get(requests.fetchExp).then((res) => res.data),
-//     axios.get(requests.fetchSkil).then((res) => res.data),
-//     axios.get(requests.fetchProj).then((res) => res.data),
-//     axios.get(requests.fetchSoci).then((res) => res.data)
-//   ])
-//   // console.log('pageInfo at index', pageInfo.pageInfo)
-//   // console.log('experiences at index', experiences.experiences)
-//   // console.log('skills at index', skills.skills)
-//   // console.log('socials at index', socials.socials)
+  const [
+    pageInfo,
+    experiences,
+    skills,
+    projects,
+    socials,
+  ] = await Promise.all([
+    // fetch(requests.fetchPageInf).then((res) => res.json()),
+    // fetch(requests.fetchExp).then((res) => res.json()),
+    // fetch(requests.fetchSkil).then((res) => res.json()),
+    // fetch(requests.fetchProj).then((res) => res.json()),
+    // fetch(requests.fetchSoci).then((res) => res.json())
 
 
+    axios.get(requests.fetchPageInf).then((res) => res.data),
+    axios.get(requests.fetchExp).then((res) => res.data),
+    axios.get(requests.fetchSkil).then((res) => res.data),
+    axios.get(requests.fetchProj).then((res) => res.data),
+    axios.get(requests.fetchSoci).then((res) => res.data)
+  ])
+  // console.log('pageInfo at index', pageInfo.pageInfo)
+  // console.log('experiences at index', experiences.experiences)
+  // console.log('skills at index', skills.skills)
+  // console.log('socials at index', socials.socials)
 
-//   return {
-//     props: {
-//       pageInfo: pageInfo.pageInfo,
-//       experiences: experiences.experiences,
-//       skills: skills.skills,
-//       projects: projects.projects,
-//       socials: socials.socials
-//       // pageInfo,
-//       // experiences,
-//       // skills,
-//       // projects,
-//       // socials,
-//     },
-//     // Next will try and regenerate the page after n time of seconds
-//     revalidate: 30
-//   }
-// }
+
+
+  return {
+    props: {
+      pageInfo: pageInfo.pageInfo,
+      experiences: experiences.experiences,
+      skills: skills.skills,
+      projects: projects.projects,
+      socials: socials.socials
+      // pageInfo,
+      // experiences,
+      // skills,
+      // projects,
+      // socials,
+    },
+    // Next will try and regenerate the page after n time of seconds
+    revalidate: 30
+  }
+}
