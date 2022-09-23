@@ -14,7 +14,7 @@ export default function BackgroundCircles({}: Props) {
         borderRadius: ["20%", "20%", "50%", "80%", "20%"]
        }}
        transition={{ duration: 2.5 }}
-       className="relative flex justify-center items-center"
+       className="relative flex items-center justify-center"
     >
         <div className="absolute mt-52 border border-[#333333] rounded-full h-[200px] w-[200px] animate-ping" />
         <div className="absolute mt-52 border border-[#333333] rounded-full h-[300px] w-[300px]" />
