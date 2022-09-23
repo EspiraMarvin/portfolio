@@ -12,7 +12,7 @@ export default function Skills({ skills }: Props) {
     <motion.div
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
-    transition={{ duration: 1.0 }}
+    transition={{ duration: 1 }}
      className="h-screen flex relative flex-col text-center md:text-left xl:flex-row max-w-[2000px] xl:px-10 min-h-screen  justify-center xl:space-y-0 mx-auto items-center">
         <h3 className="absolute top-20 uppercase tracking-[20px] text-gray-500 text-2xl">Skills</h3>
 
@@ -24,7 +24,7 @@ export default function Skills({ skills }: Props) {
           ))}
 
           { skills.slice(skills.length/2, skills.length)?.map(skill => (
-            <Skill key={skill._id} skill={skill} directionLeft={true} />
+            <Skill key={skill._id} skill={skill} directionLeft />
           ))} 
         </div>
 

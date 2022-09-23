@@ -36,12 +36,12 @@ export default function Projects({ projects }: Props) {
                     />
 
                     <div className="max-w-6xl px-0 space-y-10 md:px-10">
-                    <h4 className="text-xl font-semibold text-center md:text-3xl 2xl:text-4xl">
-                        <span className="underline decoration-[#F7AB0A]/50 text-base"> 
-                        Project {index + 1} of {projects.length}
+                    <h4 className="text-2xl font-semibold text-center md:text-3xl 2xl:text-4xl">
+                        <span className="underline decoration-[#F7AB0A]/50 text-xs text-gray-400"> 
+                        {index + 1} of {projects.length}
                        </span> {' '}
                        <a target="_blank" href={project?.linkToBuild}  rel="noopener noreferrer">
-                           <span className="text-gray-300 cursor-pointer hover:text-gray-50 hover:underline hover:decoration-white">{ project?.title }</span>
+                           <span className="cursor-pointer hover:text-gray-50 hover:underline hover:decoration-white animate-pulse">{ project?.title }</span>
                       </a>
                     </h4>
                     

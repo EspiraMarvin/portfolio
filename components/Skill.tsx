@@ -13,7 +13,7 @@ export default function Skill({ directionLeft, skill }: Props) {
     <div className="relative flex cursor-pointer group">
         <motion.img 
          initial={{
-            x: directionLeft ? -100 : 100,
+            x: directionLeft ? -20 : 20,
             opacity: 0
          }}
          transition={{ duration: 1 }}
