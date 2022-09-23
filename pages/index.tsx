@@ -1,6 +1,6 @@
 
 // import type { GetStaticProps } from 'next'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect} from 'react'
 import requests from "../utils/requests"
 import Head from 'next/head'
 import Link from 'next/link'
