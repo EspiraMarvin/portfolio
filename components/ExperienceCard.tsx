@@ -10,7 +10,7 @@ type Props = {
 
 export default function ExperienceCard({ experience }: Props) {
   return (
-    <article className="flex flex-col rounded-lg  items-center space-y-7 flex-shrink-0 w-[500px] md:w-[600px] xl:w-[900px]
+    <article className="flex flex-col rounded-lg md:items-center space-y-3 md:space-y-7 flex-shrink-0 w-[400px] md:w-[600px] xl:w-[900px]
      snap-center bg-[#292929] p-10 hover:opacity-100 opacity-50 cursor-pointer transition-opacity duration-200">
         <motion.img 
             initial={{ y: -100, opacity: 0 }}
@@ -43,7 +43,7 @@ export default function ExperienceCard({ experience }: Props) {
              { experience?.isCurrentlyWorkingHere ? "Present" : new Date(experience?.dateEnded).toDateString() }.
              </p>
 
-            <ul className="w-4/5 ml-4 pr-4 space-y-4 overflow-scroll text-lg list-disc h-96 scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80 ">
+            <ul className="w-4/5 ml-4 pr-4 space-y-4 scroll-smooth overflow-scroll text-lg list-disc h-96 scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80 ">
               {/* summary points */}
               { experience.points.map((point, index) => (
                 <li key={index}>{point}</li>

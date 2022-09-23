@@ -59,7 +59,7 @@ export default function ContactMe({}: Props) {
                 </div>
                 <input {...register('subject')} placeholder="Subject" className="contactInput" type="text" />
                 <textarea  {...register('message')} placeholder="Message" className="contactInput" name="" id="" ></textarea>
-                <button type="submit" className="bg-[#F7AB0A] py-5 px-10 rounded-md text-black font-bold text-lg">Submit</button>
+                <button type="submit" className="bg-[#F7AB0A] py-3.5 px-10 rounded-md text-black font-bold text-lg">Submit</button>
             </form>
 
 
