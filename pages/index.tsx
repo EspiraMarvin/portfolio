@@ -18,6 +18,7 @@ import { Experience, PageInfo, Project, Skill, Social } from '../typings'
 // import { fetchProjects } from '../utils/fetchProjects'
 // import { fetchSocials } from '../utils/fetchSocials'
 // import styles from '../styles/Home.module.css'
+import axios from "axios"
 
 interface Props  {
   pageInfo: PageInfo,
@@ -89,12 +90,18 @@ export const getStaticProps: GetStaticProps<Props> = async() => {
     projects,
     socials,
   ] = await Promise.all([
-    fetch(requests.fetchPageInf).then((res) => res.json()),
-    fetch(requests.fetchExp).then((res) => res.json()),
-    fetch(requests.fetchSkil).then((res) => res.json()),
-    fetch(requests.fetchProj).then((res) => res.json()),
-    fetch(requests.fetchSoci).then((res) => res.json())
+    axios(requests.fetchPageInf).then((res) => res.data),
+    axios(requests.fetchExp).then((res) => res.data),
+    axios(requests.fetchSkil).then((res) => res.data),
+    axios(requests.fetchProj).then((res) => res.data),
+    axios(requests.fetchSoci).then((res) => res.data)
   ])
+  // console.log('pageInfo at index', pageInfo)
+  // console.log('experiences at index', experiences.experiences)
+  // console.log('skills at index', skills.skills)
+  // console.log('socials at index', socials.socials)
+
+
 
   return {
     props: {
@@ -102,7 +109,7 @@ export const getStaticProps: GetStaticProps<Props> = async() => {
       experiences: experiences.experiences,
       skills: skills.skills,
       projects: projects.projects,
-      socials: socials.socials,
+      socials: socials.socials
       // pageInfo,
       // experiences,
       // skills,

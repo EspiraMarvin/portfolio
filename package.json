@@ -11,7 +11,9 @@
   "dependencies": {
     "@heroicons/react": "^2.0.11",
     "@portabletext/react": "^1.0.6",
+    "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
+    "axios": "^0.27.2",
     "framer-motion": "^7.3.5",
     "next": "12.3.0",
     "next-sanity": "^0.8.4",
