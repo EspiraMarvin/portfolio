@@ -22,20 +22,20 @@ import { Experience, PageInfo, Project, Skill, Social } from '../typings'
 import axios from "axios"
 
 interface Props  {
-  pageInfo: PageInfo,
+  pageInfo: PageInfo | null | undefined ,
   experiences: Experience[]
   skills: Skill[]
   projects: Project[],
   socials: Social[]
 }
 
-const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
-// const Home = ({}) => {
-  // const [pageInfo, setPageInfo] = useState<any | null>()
-  // const [experiences, setExperiences] = useState<Experience[]>([])
-  // const [skills, setSkills] = useState<Skill[]>([])
-  // const [projects, setProjects] = useState<Project[]>([])
-  // const [socials, setSocials] = useState<Social[]>([])
+// const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
+const Home = ({}) => {
+  const [pageInfo, setPageInfo] = useState<PageInfo | null | undefined>(undefined)
+  const [experiences, setExperiences] = useState<Experience[]>([])
+  const [skills, setSkills] = useState<Skill[]>([])
+  const [projects, setProjects] = useState<Project[]>([])
+  const [socials, setSocials] = useState<Social[]>([])
 
 
   useEffect(() => {
@@ -53,13 +53,13 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
         axios.get(requests.fetchProj).then((res) => res.data),
         axios.get(requests.fetchSoci).then((res) => res.data)
       ])
-      // setPageInfo(pageInfo.pageInfo)
-      // setExperiences(experiences.experiences)
-      // setSkills(skills.skills)
-      // setProjects(projects.projects)
-      // setSocials(socials.socials)
+      setPageInfo(pageInfo.pageInfo)
+      setExperiences(experiences.experiences)
+      setSkills(skills.skills)
+      setProjects(projects.projects)
+      setSocials(socials.socials)
     }
-    // fetchAll()
+    fetchAll()
   }, [])
 
 
@@ -72,96 +72,108 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header socials={socials} />
+      {socials.length > 0 &&
+        <Header socials={socials} />
+      }
 
+    {pageInfo?.heroImage &&
       <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
+     }
 
+    {pageInfo?.profilePic &&
       <section id="about" className="snap-center">
         <About pageInfo={pageInfo} />
       </section>
+    }
 
+    {experiences.length > 0 &&
       <section id="experience" className="snap-center">
         <WorkExperience experiences={experiences} />
       </section>
+    }   
 
+    {skills.length > 0 &&
       <section id="skills" className="snap-start">
         <Skills skills={skills} />
       </section>
+    }
 
+    {projects.length > 0 &&
       <section id="projects" className="snap-start">
         <Projects projects={projects} />
       </section>
+    } 
 
-      <section id="contact" className="snap-start">
-        <ContactMe />
-      </section>
+    {projects.length > 0 &&
 
+        <section id="contact" className="snap-start">
+          <ContactMe />
+        </section>
+    }
 
-    <Link href="#hero">
-      <footer className="absolute z-10 bottom-5 right-2 md:right-8 lg:right-10">
-        <ArrowUpCircleIcon className="text-right text-gray-400 bg-transparent rounded-full cursor-pointer w-14 h-14 filter grayscale hover:text-gray-50" />
-       </footer>
-    </Link>
-
-
-
-
+    {projects.length > 0 &&
+      <Link href="#hero">
+        <footer className="absolute z-10 bottom-5 right-2 md:right-8 lg:right-10">
+          <ArrowUpCircleIcon className="text-right text-gray-400 bg-transparent rounded-full cursor-pointer w-14 h-14 filter grayscale hover:text-gray-50" />
+        </footer>
+      </Link>
+    }
     </div>
   )
 }
 
 export default Home
 
-export const getStaticProps: GetStaticProps<Props> = async() => {
-  // const pageInfo: PageInfo =  await fetchPageInfo()
-  // const experiences: Experience[] =  await fetchExperiences()
-  // const skills: Skill[] =  await fetchSkills()
-  // const projects: Project[] =  await fetchProjects()
-  // const socials: Social[] =  await fetchSocials()
+// export const getStaticProps: GetStaticProps<Props> = async() => {
+//   // const pageInfo: PageInfo =  await fetchPageInfo()
+//   // const experiences: Experience[] =  await fetchExperiences()
+//   // const skills: Skill[] =  await fetchSkills()
+//   // const projects: Project[] =  await fetchProjects()
+//   // const socials: Social[] =  await fetchSocials()
 
-  const [
-    pageInfo,
-    experiences,
-    skills,
-    projects,
-    socials,
-  ] = await Promise.all([
-    // fetch(requests.fetchPageInf).then((res) => res.json()),
-    // fetch(requests.fetchExp).then((res) => res.json()),
-    // fetch(requests.fetchSkil).then((res) => res.json()),
-    // fetch(requests.fetchProj).then((res) => res.json()),
-    // fetch(requests.fetchSoci).then((res) => res.json())
-
-
-    axios.get(requests.fetchPageInf).then((res) => res.data),
-    axios.get(requests.fetchExp).then((res) => res.data),
-    axios.get(requests.fetchSkil).then((res) => res.data),
-    axios.get(requests.fetchProj).then((res) => res.data),
-    axios.get(requests.fetchSoci).then((res) => res.data)
-  ])
-  // console.log('pageInfo at index', pageInfo.pageInfo)
-  // console.log('experiences at index', experiences.experiences)
-  // console.log('skills at index', skills.skills)
-  // console.log('socials at index', socials.socials)
+//   const [
+//     pageInfo,
+//     experiences,
+//     skills,
+//     projects,
+//     socials,
+//   ] = await Promise.all([
+//     // fetch(requests.fetchPageInf).then((res) => res.json()),
+//     // fetch(requests.fetchExp).then((res) => res.json()),
+//     // fetch(requests.fetchSkil).then((res) => res.json()),
+//     // fetch(requests.fetchProj).then((res) => res.json()),
+//     // fetch(requests.fetchSoci).then((res) => res.json())
 
 
+//     axios.get(requests.fetchPageInf).then((res) => res.data),
+//     axios.get(requests.fetchExp).then((res) => res.data),
+//     axios.get(requests.fetchSkil).then((res) => res.data),
+//     axios.get(requests.fetchProj).then((res) => res.data),
+//     axios.get(requests.fetchSoci).then((res) => res.data)
+//   ])
+//   // console.log('pageInfo at index', pageInfo.pageInfo)
+//   // console.log('experiences at index', experiences.experiences)
+//   // console.log('skills at index', skills.skills)
+//   // console.log('socials at index', socials.socials)
 
-  return {
-    props: {
-      pageInfo: pageInfo.pageInfo,
-      experiences: experiences.experiences,
-      skills: skills.skills,
-      projects: projects.projects,
-      socials: socials.socials
-      // pageInfo,
-      // experiences,
-      // skills,
-      // projects,
-      // socials,
-    },
-    // Next will try and regenerate the page after n time of seconds
-    // revalidate: 10000
-  }
-}
+
+
+//   return {
+//     props: {
+//       pageInfo: pageInfo.pageInfo,
+//       experiences: experiences.experiences,
+//       skills: skills.skills,
+//       projects: projects.projects,
+//       socials: socials.socials
+//       // pageInfo,
+//       // experiences,
+//       // skills,
+//       // projects,
+//       // socials,
+//     },
+//     // Next will try and regenerate the page after n time of seconds
+//     // revalidate: 10000
+//   }
+// }

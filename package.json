@@ -11,7 +11,6 @@
   "dependencies": {
     "@heroicons/react": "^2.0.11",
     "@portabletext/react": "^1.0.6",
-    "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "axios": "^0.27.2",
     "framer-motion": "^7.3.5",
@@ -21,8 +20,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.35.0",
     "react-simple-typewriter": "^4.0.2",
-    "react-social-icons": "^5.14.0",
-    "vercel": "^28.4.2"
+    "react-social-icons": "^5.14.0"
   },
   "devDependencies": {
     "@types/node": "18.7.18",
