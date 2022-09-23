@@ -18,7 +18,7 @@ const config = {
     apiVersion: "2021-10-21",
     // apiVersion: "v1",
     useCdn: process.env.NODE_ENV === "production",
-    token: 'sksnX3My6cTDiLR5iOJgwunG0glym5yWsDz5czr060OPRU061chlZaMJqyBkLhRvCgsOYiKKIQCkPfnVlxk0YyF0un7AESLdHAW2tOPYubhud7VeSbu5yokQhqh4xLyD1y9aehEsG4V8BM1MoWeTyhixSg1bKwvV11Bwdamlih1WTL0IQ9fq', // or leave blank for unauthenticated usage
+    // token: 'sksnX3My6cTDiLR5iOJgwunG0glym5yWsDz5czr060OPRU061chlZaMJqyBkLhRvCgsOYiKKIQCkPfnVlxk0YyF0un7AESLdHAW2tOPYubhud7VeSbu5yokQhqh4xLyD1y9aehEsG4V8BM1MoWeTyhixSg1bKwvV11Bwdamlih1WTL0IQ9fq', // or leave blank for unauthenticated usage
 }
 console.log('configggg', config)
 

@@ -1,5 +1,5 @@
 
-import type { GetStaticProps } from 'next'
+// import type { GetStaticProps } from 'next'
 import { useState, useEffect } from 'react'
 import requests from "../utils/requests"
 import Head from 'next/head'
@@ -19,7 +19,7 @@ import { Experience, PageInfo, Project, Skill, Social } from '../typings'
 // import { fetchProjects } from '../utils/fetchProjects'
 // import { fetchSocials } from '../utils/fetchSocials'
 // import styles from '../styles/Home.module.css'
-import axios from "axios"
+// import axios from "axios"
 
 interface Props  {
   pageInfo: PageInfo | null | undefined ,
@@ -36,9 +36,12 @@ const Home = ({}) => {
   const [skills, setSkills] = useState<Skill[]>([])
   const [projects, setProjects] = useState<Project[]>([])
   const [socials, setSocials] = useState<Social[]>([])
+  const [loading, setLoading] = useState(false)
+
 
 
   useEffect(() => {
+    setLoading(true)
     async function fetchAll(){
       const [
         pageInfo,
@@ -53,11 +56,12 @@ const Home = ({}) => {
         fetch(requests.fetchProj).then((res) => res.json()),
         fetch(requests.fetchSoci).then((res) => res.json())
       ])
-      await setPageInfo(pageInfo.pageInfo)
-      await setExperiences(experiences.experiences)
-      await setSkills(skills.skills)
-      await setProjects(projects.projects)
-      await setSocials(socials.socials)
+       setPageInfo(pageInfo.pageInfo)
+       setExperiences(experiences.experiences)
+       setSkills(skills.skills)
+       setProjects(projects.projects)
+       setSocials(socials.socials)
+    setLoading(false)
     }
     fetchAll()
   }, [])
@@ -72,11 +76,15 @@ const Home = ({}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {socials.length !== 0 &&
+
+      { loading &&
+      <div className="flex items-center justify-center h-screen text-2xl">Loading</div>
+      }
+      {socials.length !== 0 || socials !== undefined &&
         <Header socials={socials} />
       }
 
-    {pageInfo?.heroImage !== undefined &&
+    {pageInfo !== undefined &&
       <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
