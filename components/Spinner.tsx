@@ -1,0 +1,8 @@
+
+type Props = {}
+
+export default function Spinner({}: Props) {
+  return (
+    <div className="w-16 h-16 border-t-4 border-r-2 border-white rounded-full animate-spin" />
+  )
+}

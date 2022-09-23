@@ -12,15 +12,8 @@ import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import WorkExperience from '../components/WorkExperience'
 import { ArrowUpCircleIcon } from '@heroicons/react/24/solid'
+import Spinner from '../components/Spinner'
 import { Experience, PageInfo, Project, Skill, Social } from '../typings'
-// import { fetchPageInfo } from '../utils/fetchPageInfo'
-// import { fetchExperiences } from '../utils/fetchExperiences'
-// import { fetchSkills } from '../utils/fetchSkills'
-// import { fetchProjects } from '../utils/fetchProjects'
-// import { fetchSocials } from '../utils/fetchSocials'
-// import styles from '../styles/Home.module.css'
-// import axios from "axios"
-
 interface Props  {
   pageInfo: PageInfo | null | undefined ,
   experiences: Experience[]
@@ -76,7 +69,9 @@ const Home = ({}) => {
 
 
       { loading &&
-      <div className="flex items-center justify-center h-screen text-2xl">Loading</div>
+      <div className="flex items-center justify-center h-screen text-2xl">
+        <Spinner />
+      </div>
       }
 
       {socials.length !== 0  &&
