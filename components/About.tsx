@@ -26,7 +26,7 @@ export default function About({ pageInfo }: Props) {
         }}
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true}}
-        src={urlFor(pageInfo?.profilePic).url()}
+        src={pageInfo?.profilePic && urlFor(pageInfo?.profilePic).url()}
         className="-mb-20 md:mb-0 rounded-full flex-shrink-0 w-56 h-56 object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[500px] xl:h-[600px]"
         />
         
