@@ -1,5 +1,5 @@
 
-import type { GetStaticProps } from 'next'
+import type { GetStaticProps, GetServerSideProps } from 'next'
 import { useState, useEffect } from 'react'
 import requests from "../utils/requests"
 import Head from 'next/head'
@@ -114,7 +114,7 @@ const Home = ({ pageInfo, experiences, skills, projects, socials }: Props) => {
 
 export default Home
 
-export const getStaticProps: GetStaticProps<Props> = async() => {
+export const getServerSideProps: GetServerSideProps<Props> = async() => {
   // const pageInfo: PageInfo =  await fetchPageInfo()
   // const experiences: Experience[] =  await fetchExperiences()
   // const skills: Skill[] =  await fetchSkills()
@@ -162,6 +162,6 @@ export const getStaticProps: GetStaticProps<Props> = async() => {
       // socials,
     },
     // Next will try and regenerate the page after n time of seconds
-    revalidate: 10000
+    // revalidate: 10000
   }
 }
