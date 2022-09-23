@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
 import BackgroundCircles from './BackgroundCircles'
 import Image from 'next/image'
@@ -9,7 +9,8 @@ import { useInView } from 'react-intersection-observer';
 
 
 type Props = {
-    pageInfo: PageInfo | null | undefined
+    pageInfo: PageInfo | null | undefined,
+    // ref: any
 }
 
 export default function Hero({ pageInfo }: Props) {
@@ -27,7 +28,6 @@ export default function Hero({ pageInfo }: Props) {
   return (
     <div className="flex flex-col items-center justify-center h-screen space-y-8 overflow-hidden text-center">
         <BackgroundCircles />
-        {pageInfo?.heroImage && 
             <Image
                 src={urlFor(pageInfo?.heroImage).url()}  
                 className="object-cover w-32 h-32 rounded-full"
@@ -35,7 +35,6 @@ export default function Hero({ pageInfo }: Props) {
                 height={130}
                 alt="profile" 
             />
-        }
         <div className="z-30">
             <h2 className="text-sm uppercase text-gray-500 tracking-[15px]">{pageInfo?.role}</h2>
             <h1 className="px-10 mr-3 text-3xl font-bold md:text-5xl lg:text-6xl">
