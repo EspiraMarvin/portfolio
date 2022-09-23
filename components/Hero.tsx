@@ -5,15 +5,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { PageInfo } from '../typings'
 import { urlFor } from '../sanity'
-import { useInView } from 'react-intersection-observer';
-
 
 type Props = {
     pageInfo: PageInfo | null | undefined,
-    // ref: any
 }
 
-export default function Hero({ pageInfo }: Props) {
+export default forwardRef(function Hero({ pageInfo }: Props, ref: any) {
     const [text, count] = useTypewriter({
         words: [
             `Hi, I'm ${pageInfo?.name}`,
@@ -26,7 +23,7 @@ export default function Hero({ pageInfo }: Props) {
         delaySpeed: 2000
        })
   return (
-    <div className="flex flex-col items-center justify-center h-screen space-y-8 overflow-hidden text-center">
+    <div ref={ref} className="flex flex-col items-center justify-center h-screen space-y-8 overflow-hidden text-center">
         <BackgroundCircles />
             <Image
                 src={urlFor(pageInfo?.heroImage).url()}  
@@ -60,4 +57,4 @@ export default function Hero({ pageInfo }: Props) {
         </div>
     </div>
   )
-}
+})
