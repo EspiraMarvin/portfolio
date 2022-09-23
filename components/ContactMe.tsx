@@ -34,12 +34,12 @@ export default function ContactMe({}: Props) {
       });
       
       useEffect(() => {
-        inView && setFocus("name");
+        inView && setFocus("name") 
     }, [setFocus, inView])
 
 
   return (
-    <div ref={ref} className="relative flex flex-col items-center h-screen min-w-full px-10 mx-auto md:flex-row justify-evenly">
+    <div className="relative flex flex-col items-center h-screen min-w-full px-10 mx-auto md:flex-row justify-evenly">
         <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">Contact</h3>
 
         <div className="flex flex-col space-y-10">
@@ -65,7 +65,7 @@ export default function ContactMe({}: Props) {
                 </div>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mx-auto space-y-2 min-w-fit ">
+            <form ref={ref}  onSubmit={handleSubmit(onSubmit)} className="flex flex-col mx-auto space-y-2 min-w-fit ">
                 <div className="flex flex-col space-y-2 md:space-y-0 md:space-x-2 md:flex-row">
                     <div>
                         <input {...register('name', { required: true })} placeholder="Name"  className="contactInput" type="text" />
