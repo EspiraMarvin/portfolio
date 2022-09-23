@@ -47,17 +47,17 @@ const Home = ({}) => {
         projects,
         socials,
       ] = await Promise.all([
-        axios.get(requests.fetchPageInf).then((res) => res.data),
-        axios.get(requests.fetchExp).then((res) => res.data),
-        axios.get(requests.fetchSkil).then((res) => res.data),
-        axios.get(requests.fetchProj).then((res) => res.data),
-        axios.get(requests.fetchSoci).then((res) => res.data)
+        fetch(requests.fetchPageInf).then((res) => res.json()),
+        fetch(requests.fetchExp).then((res) => res.json()),
+        fetch(requests.fetchSkil).then((res) => res.json()),
+        fetch(requests.fetchProj).then((res) => res.json()),
+        fetch(requests.fetchSoci).then((res) => res.json())
       ])
-      setPageInfo(pageInfo.pageInfo)
-      setExperiences(experiences.experiences)
-      setSkills(skills.skills)
-      setProjects(projects.projects)
-      setSocials(socials.socials)
+      await setPageInfo(pageInfo.pageInfo)
+      await setExperiences(experiences.experiences)
+      await setSkills(skills.skills)
+      await setProjects(projects.projects)
+      await setSocials(socials.socials)
     }
     fetchAll()
   }, [])
@@ -72,11 +72,11 @@ const Home = ({}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {socials.length > 0 &&
+      {socials.length !== 0 &&
         <Header socials={socials} />
       }
 
-    {pageInfo?.heroImage &&
+    {pageInfo?.heroImage !== undefined &&
       <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
@@ -94,26 +94,26 @@ const Home = ({}) => {
       </section>
     }   
 
-    {skills.length > 0 &&
+    {skills.length !== 0 &&
       <section id="skills" className="snap-start">
         <Skills skills={skills} />
       </section>
     }
 
-    {projects.length > 0 &&
+    {projects.length !== 0 &&
       <section id="projects" className="snap-start">
         <Projects projects={projects} />
       </section>
     } 
 
-    {projects.length > 0 &&
+    {projects.length !== 0 &&
 
         <section id="contact" className="snap-start">
           <ContactMe />
         </section>
     }
 
-    {projects.length > 0 &&
+    {projects.length !== 0 &&
       <Link href="#hero">
         <footer className="absolute z-10 bottom-5 right-2 md:right-8 lg:right-10">
           <ArrowUpCircleIcon className="text-right text-gray-400 bg-transparent rounded-full cursor-pointer w-14 h-14 filter grayscale hover:text-gray-50" />
