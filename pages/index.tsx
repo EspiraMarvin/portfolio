@@ -162,6 +162,6 @@ export const getStaticProps: GetStaticProps<Props> = async() => {
       // socials,
     },
     // Next will try and regenerate the page after n time of seconds
-    revalidate: 30
+    revalidate: 10000
   }
 }
