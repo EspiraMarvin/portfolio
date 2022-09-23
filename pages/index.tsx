@@ -38,8 +38,6 @@ const Home = ({}) => {
   const [socials, setSocials] = useState<Social[]>([])
   const [loading, setLoading] = useState(false)
 
-
-
   useEffect(() => {
     setLoading(true)
     async function fetchAll(){
@@ -68,7 +66,7 @@ const Home = ({}) => {
 
 
   return (
-    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 appScrollbar">
+    <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory scroll-smooth overflow-y-scroll overflow-x-hidden z-0 appScrollbar">
 
       <Head>
         <title>Marvin`s Portfolio</title>
@@ -80,7 +78,8 @@ const Home = ({}) => {
       { loading &&
       <div className="flex items-center justify-center h-screen text-2xl">Loading</div>
       }
-      {socials.length !== 0 || socials !== undefined &&
+
+      {socials.length !== 0  &&
         <Header socials={socials} />
       }
 
@@ -115,7 +114,6 @@ const Home = ({}) => {
     } 
 
     {projects.length !== 0 &&
-
         <section id="contact" className="snap-start">
           <ContactMe />
         </section>
