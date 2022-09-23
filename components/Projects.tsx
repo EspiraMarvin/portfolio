@@ -10,7 +10,7 @@ type Props = {
 }
 
 export default function Projects({ projects }: Props) {
-    const ref = useRef<HTMLDivElement |  null>(null)
+    let ref = useRef<HTMLDivElement |  null>(null)
     const [scrollWidth, setScrollWidth] = useState<number>();
 
     const handleScrollRight = (direction: string, scrollWidth?: number) => {
