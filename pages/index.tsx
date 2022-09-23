@@ -14,6 +14,7 @@ import WorkExperience from '../components/WorkExperience'
 import { ArrowUpCircleIcon } from '@heroicons/react/24/solid'
 import Spinner from '../components/Spinner'
 import { Experience, PageInfo, Project, Skill, Social } from '../typings'
+import { useInView } from 'react-intersection-observer';
 interface Props  {
   pageInfo: PageInfo | null | undefined ,
   experiences: Experience[]
@@ -31,6 +32,11 @@ const Home = ({}) => {
   const [socials, setSocials] = useState<Social[]>([])
   const [loading, setLoading] = useState(false)
 
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+  
   useEffect(() => {
     setLoading(true)
     async function fetchAll(){
@@ -74,12 +80,12 @@ const Home = ({}) => {
       </div>
       }
 
-      {socials.length !== 0  &&
+      {socials.length !== 0 &&
         <Header socials={socials} />
       }
 
     {pageInfo !== undefined &&
-      <section id="hero" className="snap-start">
+      <section ref={ref}  id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
      }
@@ -114,7 +120,7 @@ const Home = ({}) => {
         </section>
     }
 
-    {projects.length !== 0 &&
+    {projects.length !== 0 && !inView &&
       <Link href="#hero">
         <footer className="absolute z-10 bottom-5 right-2 md:right-8 lg:right-10">
           <ArrowUpCircleIcon className="text-right text-gray-400 bg-transparent rounded-full cursor-pointer w-14 h-14 filter grayscale hover:text-gray-50" />

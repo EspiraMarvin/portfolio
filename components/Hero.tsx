@@ -5,6 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { PageInfo } from '../typings'
 import { urlFor } from '../sanity'
+import { useInView } from 'react-intersection-observer';
+
 
 type Props = {
     pageInfo: PageInfo | null | undefined

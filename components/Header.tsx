@@ -23,7 +23,7 @@ export default function Header({socials }: Props) {
             scale: 1
         }}
         transition={{ duration: 1.1 }}
-        className="flex flex-row items-center"
+        className="z-20 flex flex-row items-center"
         >
             {/* social icons */}
             { socials.map((social, i) => (
@@ -51,7 +51,7 @@ export default function Header({socials }: Props) {
                 scale: 1
             }}
             transition={{ duration: 1 }}
-            className="flex flex-row items-center cursor-pointer">
+            className="z-20 flex flex-row items-center cursor-pointer">
                 <SocialIcon 
                     network="email"
                     fgColor="gray"
