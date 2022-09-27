@@ -22,7 +22,7 @@ export default function ExperienceCard({ experience }: Props) {
              alt="company images"
          />
 
-         <div className="px-0 md:px-10">
+         <div className="px-0 md:px-2">
             <h4 className="text-xl font-light lg:text-3xl">{experience?.jobTitle}</h4>
             <p className="mt-1 text-2xl font-bold">{experience?.company}</p>
             <div className="flex my-2 gap-x-3">
