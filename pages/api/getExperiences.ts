@@ -3,9 +3,10 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { groq } from 'next-sanity'
 import { Experience } from '../../typings';
 
+// *[_type == "experience"] | order(_createdAt desc) {
 
 const query = groq`
-*[_type == "experience"] {
+*[_type == "experience"] | order(dateStarted desc) {
     ...,
     technologies[]-> 
  }

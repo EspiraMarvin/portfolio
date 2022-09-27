@@ -10,16 +10,15 @@ type Props = {
 
 export default function ExperienceCard({ experience }: Props) {
   return (
-    <article className="flex flex-col rounded-lg md:items-center space-y-3 md:space-y-7 flex-shrink-0 w-[400px] md:w-[600px] xl:w-[900px]
-     snap-center bg-[#292929] pl-8 pt-4 pb-10 hover:opacity-100 opacity-50 cursor-pointer transition-opacity duration-200">
+    <article className="flex flex-col rounded-lg md:items-center  space-y-3 md:space-y-2 flex-shrink-0 w-[400px] md:w-[600px] xl:w-[900px] 
+     snap-center bg-[#292929] pl-10 pt-4 pb-10 md:px-10 md:pb-20 hover:opacity-100 opacity-50 cursor-pointer transition-opacity duration-200">
         <motion.img 
             initial={{ y: -100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 1.2 }}
             viewport={{ once: true }}
-            // src="https://demofree.sirv.com/nope-not-here.jpg"
             src={urlFor(experience?.companyImage).url()}
-            className="h-16 w-16 md:w-20 md:h-20 lg:w-28 lg:h-28 rounded-full md:rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
+            className="object-cover object-center w-16 h-16 rounded-full md:w-20 md:h-20 md:rounded-full"
              alt="company images"
          />
 
@@ -43,7 +42,7 @@ export default function ExperienceCard({ experience }: Props) {
              { experience?.isCurrentlyWorkingHere ? "Present" : new Date(experience?.dateEnded).toDateString() }.
              </p>
 
-            <ul className="w-4/5 ml-4 pr-4 space-y-4 scroll-smooth overflow-scroll text-lg list-disc h-96 scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80 ">
+            <ul className="w-4/5 ml-4 pr-4 space-y-4 scroll-smooth overflow-scroll text-lg list-disc h-96 scrollbar-thin scrollbar-track-black scrollbar-thumb-[#7dd3fc]/80 ">
               {/* summary points */}
               { experience.points.map((point, index) => (
                 <li key={index}>{point}</li>

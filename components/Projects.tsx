@@ -63,7 +63,7 @@ export default function Projects({ projects }: Props) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     src={urlFor(project?.image).url()}
-                      className="h-80 w-[500px] object-cover" 
+                      className="h-80 xl:h-72 2xl:h-80 w-[500px] object-cover" 
                     />
 
                     <div className="relative max-w-6xl px-0 space-y-10 md:px-10">

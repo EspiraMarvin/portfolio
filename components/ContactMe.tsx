@@ -33,10 +33,6 @@ export default function ContactMe({}: Props) {
         threshold: 0,
       });
       
-      useEffect(() => {
-        inView && setFocus("name") 
-    }, [setFocus, inView])
-
 
   return (
     <div className="relative flex flex-col items-center h-screen min-w-full px-10 mx-auto md:flex-row justify-evenly">
@@ -45,22 +41,22 @@ export default function ContactMe({}: Props) {
         <div className="flex flex-col space-y-10">
             <h4 className="text-xl font-semibold text-center md:text-2xl lg:text-3xl 2xl:text-4xl">
             I have got what you need.{" "}
-            <span className="underline decoration-[#F7AB0A]">{" "} Let`s Talk.</span>
+            <span className="underline decoration-[#7dd3fc]">{" "} Let`s Talk.</span>
             </h4>
             
             <div className="flex flex-col items-start px-16 ml-6 space-y-4 text-center md:px-0">
                 <div className="flex items-center justify-center space-x-5">
-                    <PhoneIcon className="h-7 w-7 text-[#F7AB0A] animate-pulse" />
+                    <PhoneIcon className="h-7 w-7 text-[#0EA5E9] animate-pulse" />
                     <p>+254791425789</p>
                 </div>
 
                 <div className="flex items-center justify-center space-x-5">
-                    <MapPinIcon className="h-7 w-7 text-[#F7AB0A] animate-pulse" />
+                    <MapPinIcon className="h-7 w-7 text-[#0EA5E9] animate-pulse" />
                     <p>Nairobi, Kenya</p>
                 </div>
 
                 <div className="flex items-center justify-center space-x-5">
-                    <EnvelopeIcon className="h-7 w-7 text-[#F7AB0A] animate-pulse" />
+                    <EnvelopeIcon className="h-7 w-7 text-[#0EA5E9] animate-pulse" />
                     <p>espiramarvin@gmail.com</p>
                 </div>
             </div>
@@ -97,7 +93,7 @@ export default function ContactMe({}: Props) {
                         Message required.
                     </p>
                 )}
-                <button type="submit" className="bg-[#F7AB0A] py-3.5 px-10 rounded-md text-black font-bold text-lg">Submit</button>
+                <button type="submit" className="bg-[#0EA5E9] py-3.5 px-10 rounded-md text-black font-bold text-lg">Submit</button>
             </form>
         </div>
     </div>

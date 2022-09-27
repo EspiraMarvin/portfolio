@@ -14,10 +14,9 @@ export default forwardRef(function Hero({ pageInfo }: Props, ref: any) {
     const [text, count] = useTypewriter({
         words: [
             `Hi, I'm ${pageInfo?.name}`,
-            "Codes in React, Nextjs, TS, JS..",
+            "React, Nextjs, TS, JS..",
             "Nodejs, Vuejs",
-            "<LovesToCode💻️>",
-            "<!Coffee☕️>"      
+            "<💻️ && !☕️>",
         ],
         loop: true,
         delaySpeed: 2000
@@ -36,7 +35,7 @@ export default forwardRef(function Hero({ pageInfo }: Props, ref: any) {
             <h2 className="text-sm uppercase text-gray-500 tracking-[15px]">{pageInfo?.role}</h2>
             <h1 className="px-10 mr-3 text-3xl font-bold md:text-5xl lg:text-6xl">
                 <span className="mr-3">{text}</span>
-                <Cursor cursorColor="#F7AB0A" />
+                <Cursor cursorColor="#0EA5E9" />
             </h1>        
 
             <div className="pt-5">
@@ -51,6 +50,15 @@ export default forwardRef(function Hero({ pageInfo }: Props, ref: any) {
                 </Link>
                 <Link href="#projects">
                     <button className="heroButton">Projects</button>
+                </Link>
+            </div>
+
+            <div className="hidden pt-5">
+                <Link href="#about">
+                    <button className="heroButton">CV</button>
+                </Link>
+                <Link href="#experience">
+                    <button className="heroButton">Articles</button>
                 </Link>
             </div>
 

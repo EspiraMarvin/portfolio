@@ -96,7 +96,7 @@ const Home = ({}) => {
     }
 
     {experiences.length > 0 &&
-      <section id="experience" className="snap-center">
+      <section id="experience" className="snap-center xl:snap-start">
         <WorkExperience experiences={experiences} />
       </section>
     }   
