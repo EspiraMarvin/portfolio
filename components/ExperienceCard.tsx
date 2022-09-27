@@ -11,7 +11,7 @@ type Props = {
 export default function ExperienceCard({ experience }: Props) {
   return (
     <article className="flex flex-col rounded-lg md:items-center space-y-3 md:space-y-7 flex-shrink-0 w-[400px] md:w-[600px] xl:w-[900px]
-     snap-center bg-[#292929] p-10 hover:opacity-100 opacity-50 cursor-pointer transition-opacity duration-200">
+     snap-center bg-[#292929] pl-8 pt-4 pb-10 hover:opacity-100 opacity-50 cursor-pointer transition-opacity duration-200">
         <motion.img 
             initial={{ y: -100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -19,7 +19,7 @@ export default function ExperienceCard({ experience }: Props) {
             viewport={{ once: true }}
             // src="https://demofree.sirv.com/nope-not-here.jpg"
             src={urlFor(experience?.companyImage).url()}
-            className="h-20 w-20 md:w-28 md:h-28 rounded-full md:rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
+            className="h-16 w-16 md:w-20 md:h-20 lg:w-28 lg:h-28 rounded-full md:rounded-full xl:w-[200px] xl:h-[200px] object-cover object-center"
              alt="company images"
          />
 

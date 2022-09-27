@@ -40,7 +40,7 @@ export default function ContactMe({}: Props) {
 
   return (
     <div className="relative flex flex-col items-center h-screen min-w-full px-10 mx-auto md:flex-row justify-evenly">
-        <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">Contact</h3>
+        <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 md:text-2xl">Contact</h3>
 
         <div className="flex flex-col space-y-10">
             <h4 className="text-xl font-semibold text-center md:text-2xl lg:text-3xl 2xl:text-4xl">
