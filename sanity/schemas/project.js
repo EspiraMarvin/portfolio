@@ -32,13 +32,6 @@ export default {
       name: "linkToBuild",
       title: "LinkToBuild",
       type: "url"
-    },
-    {
-      name: "number",
-      title: "Number",
-      type: "number",
-      description: "Project Number",
-      validation: (Rule) => Rule.min(0).max(100)
-    },
+    }
   ],
 }
