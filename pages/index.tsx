@@ -95,17 +95,17 @@ const Home = ({}) => {
       </section>
     }
 
-    {experiences.length > 0 &&
-      <section id="experience" className="snap-center xl:snap-start">
-        <WorkExperience experiences={experiences} />
-      </section>
-    }   
-
     {skills.length !== 0 &&
       <section id="skills" className="snap-start">
         <Skills skills={skills} />
       </section>
     }
+
+    {experiences.length > 0 &&
+      <section id="experience" className="snap-center xl:snap-start">
+        <WorkExperience experiences={experiences} />
+      </section>
+    }   
 
     {projects.length !== 0 &&
       <section id="projects" className="snap-start">
