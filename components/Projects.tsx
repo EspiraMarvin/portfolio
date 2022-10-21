@@ -53,7 +53,7 @@ export default function Projects({ projects }: Props) {
 
         <div ref={ref} onScroll={scrollCheck} className="relative z-20 flex w-full overflow-x-scroll overflow-y-hidden snap-x snap-mandatory appScrollbar scroll-smooth">
             { projects.map((project, index) => (
-                <div className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-20 space-y-5 snap-center md:p-44" key={project._id}>
+                <div className="flex flex-col items-center justify-center flex-shrink-0 w-screen h-screen p-10 space-y-5 snap-center md:p-44" key={project._id}>
                     <motion.img 
                     initial={{
                         y: -300,
@@ -68,8 +68,8 @@ export default function Projects({ projects }: Props) {
 
                     <div className="relative max-w-6xl px-0 space-y-10 md:px-10">
                         <h4 className="text-2xl font-semibold text-center md:text-3xl 2xl:text-4xl">
-                            <span className="underline decoration-[#F7AB0A]/50 text-xs text-gray-400"> 
-                            {index + 1} of {projects.length}
+                            <span className="underline decoration-[#0EA5E9]/50 text-xs text-gray-400"> 
+                            {index + 1} of <span className='text-[#0EA5E9]/50'>{projects.length}</span>
                         </span> {' '}
                         <a target="_blank" href={project?.linkToBuild}  rel="noopener noreferrer">
                             <span className="cursor-pointer hover:text-gray-50 hover:underline hover:decoration-white animate-pulse">{ project?.title }</span>
@@ -91,7 +91,7 @@ export default function Projects({ projects }: Props) {
                             ))}
                         </div>
 
-                        <p className="text-lg text-center md:text-left">
+                        <p className="text-center md:text-lg md:text-left">
                             { project?.summary }
                         </p>
                         

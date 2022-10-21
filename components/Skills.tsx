@@ -21,7 +21,6 @@ export default function Skills({ skills }: Props) {
           <span className="md:hidden">Click</span><span className="hidden md:block">Hover</span>&nbsp; on a skill to see its name
         </h3>
 
-
         <div className="grid grid-cols-4 gap-5 pt-16 lg:gap-8 md:pt-0 xl:pt-10 md:p-1 md:grid-cols-4 xl:grid-cols-5">
           { skills.slice(0, skills.length/2)?.map(skill => (
             <Skill key={skill._id} skill={skill} />

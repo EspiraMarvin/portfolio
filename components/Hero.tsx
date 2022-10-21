@@ -15,7 +15,7 @@ export default forwardRef(function Hero({ pageInfo }: Props, ref: any) {
         words: [
             `Hi, I'm ${pageInfo?.name}`,
             "React, Nextjs, TS, JS..",
-            "Nodejs, Vuejs"
+            "Nodejs, Vuejs, R.Native"
         ],
         loop: true,
         delaySpeed: 2000

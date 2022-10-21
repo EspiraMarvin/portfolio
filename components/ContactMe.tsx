@@ -30,7 +30,6 @@ export default function ContactMe({}: Props) {
     const formRef = useRef<any>();
     const [loading, setLoading] = useState(false)
 
-
     const notifySuccess = () => toast.success('Email sent. Marvin will be in touch soon.');
 
     const notifyError = (error:any) => toast.error(`${error?.text}`);
@@ -44,7 +43,6 @@ export default function ContactMe({}: Props) {
         }catch(error:any){
             notifyError(error?.text)
         }
-       
     };
 
     const { ref, inView, entry } = useInView({
@@ -103,9 +101,9 @@ export default function ContactMe({}: Props) {
                     <div>
                         <input {...register('email', { required: true })} placeholder="Email" name="email" className="contactInput"  type="email" />
                         {errors.email && (
-                                <p className="flex flex-col p-1 text-[13px] font-light text-orange-500 z-50">
-                                    Email required.
-                                </p>
+                            <p className="flex flex-col p-1 text-[13px] font-light text-orange-500 z-50">
+                                Email required.
+                            </p>
                         )}
                     </div>
 
