@@ -63,8 +63,8 @@ export default forwardRef(function Hero({ pageInfo }: Props, ref: any) {
               <button className="heroButton">RESUME</button>
             </a>
           </Link>
-          <Link href="#experience" className="hidden">
-            <button className="hidden heroButton">Articles</button>
+          <Link href="#articles">
+            <button className="heroButton">Articles</button>
           </Link>
         </div>
       </div>
