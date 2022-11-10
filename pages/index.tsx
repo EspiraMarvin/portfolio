@@ -93,12 +93,12 @@ const Home = ({}) => {
           <Skills skills={skills} />
         </section>
       )}
-
+      {/* 
       {experiences.length > 0 && (
         <section id="experience" className="snap-center xl:snap-start">
           <WorkExperience experiences={experiences} />
         </section>
-      )}
+      )} */}
 
       {projects.length !== 0 && (
         <section id="projects" className="snap-start">
