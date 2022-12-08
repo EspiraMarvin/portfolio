@@ -30,6 +30,11 @@ export default function Articles({}: Props) {
       name: "Vuejs V-model support without the need for value prop.",
       link: "https://espiramarvin.hashnode.dev/vuejs-v-model-support-without-need-for-value-prop",
     },
+    {
+      id: 6,
+      name: "Node Versioning with Node Version Manager",
+      link: "https://espiramarvin.hashnode.dev/upgrade-switch-node-version-with-nvm-node-version-manager",
+    },
   ]
 
   return (
