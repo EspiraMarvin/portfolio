@@ -1,41 +1,46 @@
-import Link from "next/link"
-import React from "react"
+import Link from "next/link";
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 export default function Articles({}: Props) {
   const articles = [
     {
       id: 1,
+      name: "How to setup GitHub CICD pipelines with Self-Hosted Runners",
+      link: "https://www.cloudsigma.com/how-to-set-up-github-continuous-integration-pipelines-with-self-hosted-runners-on-ubuntu-22-04",
+    },
+    {
+      id: 2,
       name: "React Components Overview.",
       link: "https://espiramarvin.hashnode.dev/react-components",
     },
     {
-      id: 2,
+      id: 3,
       name: "Quasar Vuejs Google authentication with firebase.",
       link: "https://www.section.io/engineering-education/quasar-googleauth-with-firebase",
     },
     {
-      id: 3,
+      id: 4,
       name: "Getting started with Quasar cross-platform Framework for Vuejs.",
       link: "https://www.section.io/engineering-education/getting-started-with-quasar-framework",
     },
     {
-      id: 4,
+      id: 5,
       name: "Vuejs CRUD application with localstorage.",
       link: "https://www.section.io/engineering-education/vue2-crud-app-with-localstorage",
     },
     {
-      id: 5,
+      id: 6,
       name: "Vuejs V-model support without the need for value prop.",
       link: "https://espiramarvin.hashnode.dev/vuejs-v-model-support-without-need-for-value-prop",
     },
     {
-      id: 6,
+      id: 7,
       name: "Node Versioning with Node Version Manager",
       link: "https://espiramarvin.hashnode.dev/upgrade-switch-node-version-with-nvm-node-version-manager",
     },
-  ]
+  ];
 
   return (
     <div className="relative z-0 flex flex-col items-center h-screen max-w-full mx-auto overflow-hidden text-left md:flex-row justify-evenly">
@@ -60,5 +65,5 @@ export default function Articles({}: Props) {
         ))}
       </div>
     </div>
-  )
+  );
 }
