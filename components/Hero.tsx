@@ -1,14 +1,14 @@
-import React, { forwardRef } from "react"
-import { useTypewriter, Cursor } from "react-simple-typewriter"
-import BackgroundCircles from "./BackgroundCircles"
-import Image from "next/image"
-import Link from "next/link"
-import { PageInfo } from "../typings"
-import { urlFor } from "../sanity"
+import React, { forwardRef } from "react";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
+import BackgroundCircles from "./BackgroundCircles";
+import Image from "next/image";
+import Link from "next/link";
+import { PageInfo } from "../typings";
+import { urlFor } from "../sanity";
 
 type Props = {
-  pageInfo: PageInfo | null | undefined
-}
+  pageInfo: PageInfo | null | undefined;
+};
 
 export default forwardRef(function Hero({ pageInfo }: Props, ref: any) {
   const [text, count] = useTypewriter({
@@ -19,7 +19,7 @@ export default forwardRef(function Hero({ pageInfo }: Props, ref: any) {
     ],
     loop: true,
     delaySpeed: 2000,
-  })
+  });
   return (
     <div
       ref={ref}
@@ -58,7 +58,7 @@ export default forwardRef(function Hero({ pageInfo }: Props, ref: any) {
         </div>
 
         <div className="pt-5">
-          <Link href="https://docs.google.com/document/d/1IGgFXJgHQhfBhgjT9CEE0Jc_rHrjjuR4W23MaJbm-aU/edit#heading=h.x8fm1uorkbaw">
+          <Link href="https://drive.google.com/file/d/1Mc8vemWMj96i1autISfqgpWfW38nJa5s/view?usp=sharing">
             <a target="_blank">
               <button className="heroButton">RESUME</button>
             </a>
@@ -69,5 +69,5 @@ export default forwardRef(function Hero({ pageInfo }: Props, ref: any) {
         </div>
       </div>
     </div>
-  )
-})
+  );
+});
