@@ -58,7 +58,7 @@ export default forwardRef(function Hero({ pageInfo }: Props, ref: any) {
         </div>
 
         <div className="pt-5">
-          <Link href="https://drive.google.com/file/d/1Mc8vemWMj96i1autISfqgpWfW38nJa5s/view?usp=sharing">
+          <Link href="https://drive.google.com/file/d/1utA1Dj22cDz6Wi8bgBnAhPLiiX7ByMQs/view?usp=sharing">
             <a target="_blank">
               <button className="heroButton">RESUME</button>
             </a>
